@@ -9,13 +9,10 @@
 
 ---
 
-## 📌 Título do Projeto: Sistema de Gerenciamento de [INSERIR TEMA AQUI]
-
-> ⚠️ **Atenção [Nome do Seu Amigo]:**  
-> Substitua `[INSERIR TEMA AQUI]` acima pelo tema escolhido (ex.: *Acervo de Biblioteca*, *Controle de Estoque*, *Cadastro de Alunos*) e preencha a seção abaixo descrevendo o contexto do sistema. Lembre-se de realizar o **commit** e **push** dessas alterações no repositório!
+## 🕹️ Arcade High Scores CRUD
 
 ### 📝 Contexto do Tema
-*[ESPAÇO RESERVADO PARA O SEU AMIGO: Explique aqui o que os números armazenados no vetor representam no contexto do tema escolhido, como códigos de identificação de livros, IDs de produtos ou números de matrícula].*
+Os números armazenados no vetor representam as pontuações máximas (High Scores) alcançadas pelos jogadores. Cada posição do vetor funciona como um lugar no ranking de recordes da máquina, guardando o valor exato dos pontos obtidos nas partidas (por exemplo, 15000, 8200, 450). Isto permite simular de forma simples o ecrã clássico de um salão de jogos, onde as pontuações são consultadas, atualizadas com novos recordes ou removidas pelo administrador do sistema.
 
 ---
 

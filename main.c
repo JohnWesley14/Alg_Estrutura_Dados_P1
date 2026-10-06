@@ -1,35 +1,35 @@
 #include <stdio.h>
 
 int main() {
-    int capacidade = 0;   // Capacidade máxima (tamanho do vetor)
-    int quantidade = 0;   // Quantidade de elementos ativos/adicionados
-    int valor;
-    int index3;
-    int indexDelete;
-    int indexRoute = 10;
+    int capacity = 0;      
+    int size = 0;           
+    int input_value;
+    int search_index;
+    int delete_index;
+    int menu_option = 10;
 
     printf("Digite o tamanho max do vetor: ");
-    scanf("%d", &capacidade);
+    scanf("%d", &capacity);
 
-    int vetor[capacidade];
+    int array[capacity];
 
-    // Preenchimento inicial do vetor
+    // Preenchimento inicial
     printf("\n--- Preenchimento Inicial ---\n");
-    for (int i = 0; i < capacidade; i++) {
+    for (int i = 0; i < capacity; i++) {
         printf("Digite um valor para a posicao %d: ", i);
-        scanf("%d", &valor);
-        vetor[i] = valor;
-        quantidade++; // Incrementa a quantidade conforme adiciona
+        scanf("%d", &input_value);
+        array[i] = input_value;
+        size++;
     }
 
     printf("\n--- Array Inicial ---\n");
-    for (int i = 0; i < quantidade; i++) {
+    for (int i = 0; i < size; i++) {
         printf("Position: %d\n", i);
-        printf("Value: %d\n", vetor[i]);
+        printf("Value: %d\n", array[i]);
         printf("------------------- \n");
     }
 
-    while (indexRoute != 0) {
+    while (menu_option != 0) {
         printf("\n0 - Sair");
         printf("\n1 - Busca por valor");
         printf("\n2 - Buscar por índice");
@@ -37,42 +37,42 @@ int main() {
         printf("\n4 - Atualizar por índice");
         printf("\n5 - Listar Array");
         printf("\n\nEscolha a opção: ");
-        scanf("%d", &indexRoute);
+        scanf("%d", &menu_option);
 
-        // 1. Busca por valor (Sem struct)
-        if (indexRoute == 1) {
+        // 1. Busca por valor
+        if (menu_option == 1) {
             printf("\n-----------------------------------\n");
             printf("Digite o numero que quer buscar: ");
-            scanf("%d", &valor);
+            scanf("%d", &input_value);
 
-            int encontrado = 0;
-            int posicao = -1;
+            int is_found = 0;
+            int found_index = -1;
 
-            for (int i = 0; i < quantidade; i++) {
-                if (vetor[i] == valor) {
-                    posicao = i;
-                    encontrado = 1;
+            for (int i = 0; i < size; i++) {
+                if (array[i] == input_value) {
+                    found_index = i;
+                    is_found = 1;
                 }
             }
 
-            if (encontrado) {
-                printf("Foi encontrado e a posicao eh: %d\n", posicao);
+            if (is_found) {
+                printf("Foi encontrado e a posicao eh: %d\n", found_index);
             } else {
                 printf("Não achamos, volte mais tarde meu lindo\n");
             }
         }
 
         // 2. Buscar por índice
-        if (indexRoute == 2) {
+        if (menu_option == 2) {
             printf("\n-----------------------------------\n");
-            if (quantidade == 0) {
+            if (size == 0) {
                 printf("O array está vazio!\n");
             } else {
-                printf("Diga o índice do valor que quer buscar (0 a %d): ", quantidade - 1);
-                scanf("%d", &index3);
+                printf("Diga o índice do valor que quer buscar (0 a %d): ", size - 1);
+                scanf("%d", &search_index);
 
-                if (index3 >= 0 && index3 < quantidade) {
-                    printf("\nO valor de vetor[%d] é: %d\n", index3, vetor[index3]);
+                if (search_index >= 0 && search_index < size) {
+                    printf("\nO valor de array[%d] é: %d\n", search_index, array[search_index]);
                 } else {
                     printf("Índice inexistente!\n");
                 }
@@ -80,31 +80,30 @@ int main() {
         }
 
         // 3. Deletar por índice
-        if (indexRoute == 3) {
+        if (menu_option == 3) {
             printf("\n-----------------------------------\n");
-            if (quantidade == 0) {
+            if (size == 0) {
                 printf("O array está vazio!\n");
             } else {
-                printf("Diga o índice do valor a ser deletado (0 a %d): ", quantidade - 1);
-                scanf("%d", &indexDelete);
+                printf("Diga o índice do valor a ser deletado (0 a %d): ", size - 1);
+                scanf("%d", &delete_index);
 
-                if (indexDelete < 0 || indexDelete >= quantidade) {
+                if (delete_index < 0 || delete_index >= size) {
                     printf("Erro: Índice inválido!\n");
                 } else {
-                    // Desloca os elementos para a esquerda
-                    for (int i = indexDelete; i < quantidade - 1; i++) {
-                        vetor[i] = vetor[i + 1];
+                    for (int i = delete_index; i < size - 1; i++) {
+                        array[i] = array[i + 1];
                     }
 
-                    quantidade--; // Reduz apenas a quantidade atual
+                    size--;
                     printf("Valor deletado com sucesso!\n\n");
 
                     printf("--- Lista de Valores Atualizada ---\n");
-                    if (quantidade == 0) {
+                    if (size == 0) {
                         printf("O array está vazio agora.\n");
                     } else {
-                        for (int i = 0; i < quantidade; i++) {
-                            printf("Índice [%d]: %d\n", i, vetor[i]);
+                        for (int i = 0; i < size; i++) {
+                            printf("Índice [%d]: %d\n", i, array[i]);
                         }
                     }
                     printf("\n-----------------------------------\n");
@@ -113,23 +112,23 @@ int main() {
         }
 
         // 4. Atualizar por índice
-        if (indexRoute == 4) {
-            int indexAtualizar;
-            int valorAtualizar;
+        if (menu_option == 4) {
+            int update_index;
+            int new_value;
             printf("\n-----------------------------------\n");
 
-            if (quantidade == 0) {
+            if (size == 0) {
                 printf("O array está vazio! Não há o que atualizar.\n");
             } else {
-                printf("Digite o índice que quer atualizar (0 a %d): ", quantidade - 1);
-                scanf("%d", &indexAtualizar);
+                printf("Digite o índice que quer atualizar (0 a %d): ", size - 1);
+                scanf("%d", &update_index);
 
-                if (indexAtualizar >= 0 && indexAtualizar < quantidade) {
-                    printf("Digite qual o valor deseja colocar no indice %d: ", indexAtualizar);
-                    scanf("%d", &valorAtualizar);
-                    vetor[indexAtualizar] = valorAtualizar;
+                if (update_index >= 0 && update_index < size) {
+                    printf("Digite qual o valor deseja colocar no indice %d: ", update_index);
+                    scanf("%d", &new_value);
+                    array[update_index] = new_value;
 
-                    indexRoute = 5; // Vai para a opção 5 para listar
+                    menu_option = 5;
                 } else {
                     printf("Erro: Índice inválido!\n");
                 }
@@ -137,14 +136,14 @@ int main() {
         }
 
         // 5. Listar Array
-        if (indexRoute == 5) {
-            printf("\n--- Elementos no Array (%d) ---\n", quantidade);
-            if (quantidade == 0) {
+        if (menu_option == 5) {
+            printf("\n--- Elementos no Array (%d) ---\n", size);
+            if (size == 0) {
                 printf("O array está vazio.\n");
             } else {
-                for (int i = 0; i < quantidade; i++) {
+                for (int i = 0; i < size; i++) {
                     printf("-------------------\n");
-                    printf("Position: %d \nValue: %d \n", i, vetor[i]);
+                    printf("Position: %d \nValue: %d \n", i, array[i]);
                     printf("-------------------\n");
                 }
             }

@@ -30,7 +30,7 @@ Toda a solução utiliza exclusivamente os conceitos fundamentais: **estruturas 
 
 📌 Nota de Desenvolvimento e Contribuições
 
-Gostaríamos de justificar o reduzido número de commits no histórico deste repositório. Grande parte da estrutura do projeto, à exceção da funcionalidade de eliminação, foi desenvolvida presencialmente e em conjunto (Ivaldo e Jhon) durante o horário letivo. Nas etapas finais do desenvolvimento, as tarefas foram distribuídas: o Jhon solucionou o problema associado à função de delete, enquanto o Ivaldo implementou o tema e realizou os ajustes necessários para adequar os textos do código à temática escolhida.
+Gostaríamos de justificar o reduzido número de commits no histórico deste repositório. Grande parte da estrutura do projeto, à exceção da funcionalidade de eliminação, foi desenvolvida presencialmente e em conjunto (Ivaldo e John) durante o horário letivo. Nas etapas finais do desenvolvimento, as tarefas foram distribuídas: o John solucionou o problema associado à função de delete, enquanto o Ivaldo implementou o tema e realizou os ajustes necessários para adequar os textos do código à temática escolhida.
 ---
 
 ## ⚙️ Arquitetura e Lógica do Sistema
